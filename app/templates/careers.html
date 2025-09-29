@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <!-- Section 1: Page Header (Default Background) -->
+    <div class="container mt-5 py-5">
+        <div class="row align-items-center">
+            <div class="col-lg-6" data-aos="fade-right">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h1 class="display-4">Join Our Team</h1>
+                    {% if current_user.is_authenticated and current_user.is_admin %}
+                        <a href="{{ url_for('main.create_job') }}" class="btn btn-primary">
+                            <i class="fas fa-plus-circle me-2"></i>Create New Job
+                        </a>
+                    {% endif %}
+                </div>
+                <p class="lead mb-5">We're looking for passionate, innovative, and driven individuals to help us shape the future of consultancy in India.</p>
+            </div>
+            <div class="col-lg-6" data-aos="fade-left">
+                <img src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="A diverse team collaborating in a modern office" class="img-fluid rounded shadow-sm">
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 2: Join Our Journey (Custom Background) -->
+    <div class="bg-custom-section py-5">
+        <div class="container">
+            <div class="col-12 text-center" data-aos="zoom-in">
+                <div class="p-5 rounded-3">
+                    <i class="fas fa-users fa-3x text-primary mb-3"></i>
+                    <h2 class="mb-3">Join Our Journey</h2>
+                    <p class="lead mb-3">
+                        At SkilledProfessionals India consulting, we believe people are the heart of our success. While there are no current openings, we’re always excited to connect with passionate professionals who share our vision.
+                    </p>
+                    <p>
+                        If you are driven, innovative, and eager to make a difference, we’d love to hear from you.
+                    </p>
+                    <hr class="my-4">
+                    <p class="fw-bold">Your journey could start here, where talent meets opportunity.</p>
+                    <a class="btn btn-primary btn-lg mt-3" href="mailto:getintouch.spiconsulting@outlook.com?subject=Join Talent Pool _ [Your name] _ [role]" role="button">
+                        <i class="fas fa-paper-plane me-2"></i> Share Your Profile
+                    </a>
+                    <p class="text-muted mt-2 small">Please use the subject line: “Join Talent Pool _ [Your name] _ [role]”</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 3: Why Work With Us? (Light Gray Background) -->
+    <div class="bg-light py-5">
+        <div class="container">
+            <div class="row text-center">
+                <h2 class="mb-4" data-aos="fade-up">Why Work With Us?</h2>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="p-3">
+                        <img src="https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Innovation - team brainstorming" class="img-fluid rounded-circle mb-3" style="width: 120px; height: 120px; object-fit: cover;">
+                        <h4>Innovation</h4>
+                        <p>Be at the forefront of industry trends and work on challenging, impactful projects.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="p-3">
+                        <img src="https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Collaboration - diverse team working together" class="img-fluid rounded-circle mb-3" style="width: 120px; height: 120px; object-fit: cover;">
+                        <h4>Collaboration</h4>
+                        <p>Join a supportive, team-oriented environment where your voice is heard and valued.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="p-3">
+                        <img src="https://images.pexels.com/photos/1595385/pexels-photo-1595385.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Growth - colleagues celebrating success" class="img-fluid rounded-circle mb-3" style="width: 120px; height: 120px; object-fit: cover;">
+                        <h4>Growth</h4>
+                        <p>We invest in your professional development with continuous learning opportunities.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 4: Job Openings (Default Background) -->
+    <div class="py-5">
+        <div class="container">
+            <div class="mb-5 text-center" data-aos="fade-up">
+                <h2 class="pb-2 d-inline-block border-bottom">Current Openings</h2>
+            </div>
+            <div class="row">
+                {% for job in jobs %}
+                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="{{ loop.index * 100 }}">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ job.title }}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">{{ job.location }} &middot; {{ job.job_type }}</h6>
+                            <p class="card-text">{{ job.description|truncate(100) }}</p>
+                        </div>
+                        <div class="card-footer bg-transparent border-0 pb-3">
+                            <a href="{{ url_for('main.job_opening', job_id=job.id) }}" class="btn btn-outline-primary">View Details</a>
+                            {% if current_user.is_authenticated and current_user.is_admin %}
+                                <a href="{{ url_for('main.update_job', job_id=job.id) }}" class="btn btn-secondary btn-sm">Edit</a>
+                                <form action="{{ url_for('main.delete_job', job_id=job.id) }}" method="POST" class="d-inline">
+                                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?');">Delete</button>
+                                </form>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% else %}
+                <div class="col-12 text-center" data-aos="fade-up">
+                    <p class="lead">There are currently no open positions. Please check back later!</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

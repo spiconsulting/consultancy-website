@@ -1,0 +1,620 @@
+/* --- Root Variables for Theming --- */
+:root {
+    /* Default Light Theme Colors */
+    --bs-body-bg: #ffffff;
+    --bs-body-color: #212529;
+    --custom-secondary-bg: #f8f9fa; /* Light gray for nav/footer */
+    --bs-border-color: #dee2e6;
+}
+
+[data-bs-theme="dark"] {
+    /* Dark Theme Colors */
+    --bs-body-bg: #212529;
+    --bs-body-color: #f8f9fa;
+    --custom-secondary-bg: #343a40; /* Darker gray for nav/footer */
+    --bs-border-color: #495057;
+
+    /* Invert navbar colors for dark mode */
+    .navbar {
+        --bs-navbar-color: rgba(255, 255, 255, 0.75);
+        --bs-navbar-hover-color: #ffffff;
+    }
+}
+
+/* --- General Styles --- */
+body {
+    background-color: var(--bs-body-bg);
+    color: var(--bs-body-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Apply theme variable to components that don't auto-update */
+.bg-light {
+    background-color: var(--custom-secondary-bg) !important;
+}
+
+.border {
+    border-color: var(--bs-border-color) !important;
+}
+
+/* --- Back to Top Button Styles --- */
+#back-to-top-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none; /* Hidden by default */
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    z-index: 1000;
+    cursor: pointer;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+/* --- Blog Image Styles --- */
+.blog-post-image {
+    width: 100%; /* Make the image take the full width of its container (the card) */
+    aspect-ratio: 16 / 9; /* Force a widescreen aspect ratio */
+    object-fit: cover; /* Crop the image to fit the container without stretching it */
+}
+
+/* --- Carousel Styles --- */
+#blogCarousel .carousel-inner {
+    max-height: 400px; /* Adjust this value as needed */
+}
+
+#blogCarousel .carousel-item img {
+    object-fit: cover; /* Maintain aspect ratio and cover the area */
+    max-height: 400px; /* Match the carousel inner height */
+}
+
+/* --- Helper class for service icons --- */
+.icon-square {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 0.75rem;
+}
+
+/* --- Dark Mode Footer Fix --- */
+[data-bs-theme="dark"] footer .footer-link,
+[data-bs-theme="dark"] footer .text-dark {
+    color: #fff !important; /* Change text color to white */
+}
+
+[data-bs-theme="dark"] footer .btn-outline-dark {
+    color: #fff; /* Change icon color to white */
+    border-color: #fff; /* Change button border to white */
+}
+
+[data-bs-theme="dark"] footer .btn-outline-dark:hover {
+    background-color: #fff; /* Make hover background white */
+    color: #212529; /* Make hover icon color dark */
+}
+
+/* --- Blog Content Formatting --- */
+.blog-content-formatted {
+    white-space: pre-wrap;
+    font-family: inherit; /* Ensures the font matches the rest of the site */
+}
+
+
+
+
+/* --- Dark Mode Offcanvas & Carousel Fix --- */
+[data-bs-theme="dark"] .offcanvas {
+    background-color: var(--bs-body-bg);
+    color: var(--bs-body-color);
+}
+
+[data-bs-theme="dark"] .offcanvas .btn-close {
+    filter: invert(1) grayscale(100) brightness(200%);
+}
+
+[data-bs-theme="dark"] .carousel-caption {
+    color: #fff;
+}
+
+
+
+
+
+/* --- New Footer Styles --- */
+footer {
+    color: #6c757d; /* Muted text color for light mode */
+}
+
+footer .footer-link {
+    text-decoration: none;
+    color: #6c757d;
+    transition: color 0.2s ease-in-out;
+}
+
+footer .footer-link:hover {
+    color: var(--bs-primary); /* Use theme's primary color for hover */
+}
+
+.social-icon-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid #dee2e6;
+    color: #6c757d;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Social Media Hover Effects */
+#linkedin-btn:hover { background-color: #0077b5; border-color: #0077b5; color: #fff; }
+#instagram-btn:hover { background: #d6249f; background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%); border-color: transparent; color: #fff; }
+#facebook-btn:hover { background-color: #1877F2; border-color: #1877F2; color: #fff; }
+#whatsapp-btn:hover { background-color: #25D366; border-color: #25D366; color: #fff; }
+
+/* --- Dark Mode Footer Styles --- */
+[data-bs-theme="dark"] footer {
+    color: #adb5bd; /* Lighter muted text for dark mode */
+}
+
+[data-bs-theme="dark"] footer .footer-link {
+    color: #adb5bd;
+}
+
+[data-bs-theme="dark"] footer .social-icon-btn {
+    border-color: #495057;
+    color: #adb5bd;
+}
+
+
+
+
+
+
+
+/* --- Hero Section Background Slider --- */
+.hero-section {
+    position: relative; /* Establishes a positioning context for children */
+    overflow: hidden; /* Hides parts of the slides that go outside the container */
+    padding: 8rem 0;
+}
+
+.hero-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.hero-slider .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0; /* Hidden by default */
+    animation: fade-in-out 15s infinite; /* 15s total duration for the animation loop */
+}
+
+/* Stagger the animation for each slide */
+.hero-slider .slide:nth-child(2) {
+    animation-delay: 5s; /* Starts after the first slide has been visible for 5s */
+}
+.hero-slider .slide:nth-child(3) {
+    animation-delay: 10s; /* Starts after the second slide has been visible for 5s */
+}
+
+/* The fade animation */
+@keyframes fade-in-out {
+    0% { opacity: 0; }
+    20% { opacity: 1; } /* Fade in and stay visible */
+    33% { opacity: 1; }
+    53% { opacity: 0; } /* Fade out */
+    100% { opacity: 0; }
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black overlay */
+    z-index: 2;
+}
+
+.hero-content {
+    position: relative; /* Sits on top of the overlay and slider */
+    z-index: 3;
+}
+
+
+
+
+
+
+/* --- Custom Section Background Color --- */
+.bg-custom-section {
+    background-color: #e9ecef; /* A light, clean gray for light mode */
+}
+
+[data-bs-theme="dark"] .bg-custom-section {
+    background-color: #1a1a1a; /* A subtle dark gray for dark mode */
+}
+
+
+
+
+
+
+/* --- Blog Card Slider Styles --- */
+.blog-cards-container {
+    position: relative;
+    height: 450px; /* Adjust height as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.blog-card {
+    position: absolute;
+    width: 100%;
+    max-width: 350px; /* Adjust width of the card */
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    visibility: hidden;
+}
+
+.blog-card.active {
+    opacity: 1;
+    transform: scale(1);
+    visibility: visible;
+    z-index: 10;
+}
+
+
+
+
+
+
+
+/* --- New Vibrant Footer Styles --- */
+.footer-vibrant {
+    background: linear-gradient(45deg, #003366, #004080); /* Rich blue gradient */
+    color: rgba(255, 255, 255, 0.8); /* Slightly transparent white text */
+}
+
+.footer-vibrant .footer-logo {
+    filter: brightness(0) invert(1); /* Makes the logo white */
+}
+
+.footer-vibrant .footer-link {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.8);
+    transition: color 0.2s ease-in-out;
+}
+
+.footer-vibrant .footer-link:hover {
+    color: #ffffff; /* Brighter white on hover */
+}
+
+.footer-vibrant h6 {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.social-icon-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    border: none;
+}
+
+/* Social Media Hover Effects */
+.social-icon-btn:hover {
+    transform: translateY(-3px); /* Lifts the icon on hover */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+#linkedin-btn:hover { background-color: #0077b5; }
+#instagram-btn:hover { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%); }
+#facebook-btn:hover { background-color: #1877F2; }
+#whatsapp-btn:hover { background-color: #25D366; }
+
+.footer-bottom-bar {
+    background-color: rgba(0, 0, 0, 0.2); /* Darker bar for copyright */
+    font-size: 0.9rem;
+}
+/* --- Dark Mode Adjustments --- */
+/* The vibrant footer already looks great in dark mode, so no changes are needed! */
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- New Vibrant Header & Offcanvas Styles --- */
+.header-vibrant .navbar {
+    background: linear-gradient(45deg, #003366, #004080); /* Rich blue gradient */
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+}
+
+
+
+/* Styling for main navigation links */
+.header-vibrant .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.8) !important; /* Force light color */
+    font-weight: 500;
+    position: relative;
+    transition: color 0.3s ease-in-out;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+/* New: Add a subtle background glow on hover to the list item */
+.header-vibrant .navbar-nav .nav-item {
+    transition: background-color 0.3s ease;
+    border-radius: 0.25rem;
+}
+.header-vibrant .navbar-nav .nav-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Hover effect for main navigation links */
+.header-vibrant .navbar-nav .nav-item:hover .nav-link {
+    color: #ffffff !important; /* Force bright white on hover */
+}
+
+/* Underline hover effect */
+.header-vibrant .navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #ffffff;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+.header-vibrant .navbar-nav .nav-item:hover .nav-link::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+/* Styling for buttons */
+.header-vibrant .btn-light {
+    background-color: #ffffff;
+    border-color: #ffffff;
+    color: #003366; /* Dark blue text */
+    font-weight: bold;
+}
+
+.header-vibrant .btn-light:hover {
+    background-color: #f0f0f0;
+    border-color: #f0f0f0;
+}
+
+/* Make the hamburger icon white */
+.header-vibrant .navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.header-vibrant .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+
+
+
+
+
+
+/* --- Vibrant Offcanvas Menu Styles --- */
+.offcanvas {
+    background: linear-gradient(45deg, #003366, #004080); /* Same blue gradient */
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.offcanvas .offcanvas-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.offcanvas .offcanvas-title {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+/* Make the close button white */
+.offcanvas .btn-close {
+    filter: invert(1) grayscale(100) brightness(200%);
+}
+
+.offcanvas .nav-link {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.1rem;
+    padding: 0.75rem 0;
+}
+
+.offcanvas .nav-link:hover {
+    color: #ffffff;
+}
+
+.offcanvas hr {
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.offcanvas .btn-light {
+    background-color: #ffffff;
+    border-color: #ffffff;
+    color: #003366;
+    font-weight: bold;
+}
+
+
+
+
+.blog-content-formatted {
+    white-space: pre-wrap;
+}
+
+
+
+
+
+/* --- Vibrant Services Page Styles --- */
+.bg-vibrant-section {
+    background: linear-gradient(45deg, #004080, #0059b3); /* A slightly lighter blue gradient */
+}
+
+.section-title {
+    font-weight: bold;
+    color: #ffffff;
+    /* padding-bottom: 0.5rem;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+    display: inline-block; */
+}
+
+.service-card {
+    border: none;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 1rem 3rem rgba(0,0,0,.175)!important;
+}
+
+.industry-card {
+    border: none;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.industry-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 1rem 3rem rgba(0,0,0,.175)!important;
+}
+
+
+
+
+
+/* --- NEW: Mission & Vision Card Styles --- */
+.mission-vision-card {
+    border: none;
+    border-radius: 0.5rem;
+    overflow: hidden; /* Ensures the image corners are rounded */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mission-vision-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 1.5rem 3rem rgba(0,0,0,.2)!important;
+}
+
+.mission-vision-card .card-body {
+    position: relative;
+    padding-top: 3rem; /* Make space for the icon */
+}
+
+.mission-vision-card .card-icon-top {
+    position: absolute;
+    top: -25px; /* Position icon half-in, half-out */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #003366, #0059b3);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    border: 3px solid white;
+}
+
+
+
+
+
+/* --- Vibrant "For Clients" Page Styles --- */
+.process-card {
+    border: none;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    border-radius: 0.5rem;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.process-card:hover {
+    transform: translateY(-10px);
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.process-step-number {
+    width: 50px;
+    height: 50px;
+    margin: -45px auto 0;
+    background: linear-gradient(45deg, #0059b3, #007bff);
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+
+
+
+
+
+/* --- Updates On Something --*/
+.header-vibrant .header-logo {
+    border-radius: 10%; /* Makes it round */
+    object-fit: cover; /* Prevents stretching */
+}
+
+.header-vibrant .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.8) !important;
+    font-weight: 500;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    font-size: 1.3rem; /* UPDATED: Increased font size */
+}
+
+
+
+
+
+
+
+

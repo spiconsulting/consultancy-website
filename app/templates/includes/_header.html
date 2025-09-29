@@ -1,0 +1,81 @@
+<!-- New Vibrant Header -->
+<header class="header-vibrant">
+    <nav class="navbar navbar-dark shadow-sm">
+        <div class="container">
+            <!-- Company Logo -->
+            <a class="navbar-brand" href="{{ url_for('main.index') }}">
+                <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="SPIConsulting Logo" height="90" class="header-logo">
+            </a>
+
+            <!-- Desktop Menu (Hidden on mobile) -->
+            <div class="d-none d-lg-flex align-items-center">
+                <ul class="navbar-nav flex-row">
+                    <li class="nav-item"><a class="nav-link px-2" href="{{ url_for('main.index') }}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link px-2 text-nowrap" href="{{ url_for('main.about') }}">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link px-2 text-nowrap" href="{{ url_for('main.services') }}">Our Services</a></li>
+                    <!-- <li class="nav-item"><a class="nav-link px-2 text-nowrap" href="{{ url_for('main.for_clients') }}">For Clients</a></li> -->
+                    <!-- <li class="nav-item"><a class="nav-link px-2 text-nowrap" href="{{ url_for('main.for_hire') }}">For Hire</a></li> -->
+                    <!-- <li class="nav-item"><a class="nav-link px-2" href="{{ url_for('main.careers') }}">Careers</a></li> -->
+                    <!-- <li class="nav-item"><a class="nav-link px-2" href="{{ url_for('main.blog') }}">Blog</a></li> -->
+                    <li class="nav-item"><a class="nav-link px-2 text-nowrap" href="{{ url_for('main.contact') }}">Contact Us</a></li>
+                </ul>
+
+                <!-- Desktop Auth & Theme Buttons -->
+                <ul class="navbar-nav flex-row ms-3">
+                    {% if current_user.is_authenticated %}
+                        <li class="nav-item me-2"><span class="navbar-text">Welcome, {{ current_user.username }}!</span></li>
+                        <li class="nav-item"><a href="{{ url_for('auth.logout') }}" class="btn btn-light btn-sm">Logout</a></li>
+                    {% else %}
+                        <li class="nav-item me-2"><a href="{{ url_for('auth.login') }}" class="btn btn-light btn-sm">Login</a></li>
+                        <li class="nav-item"><a href="{{ url_for('auth.register') }}" class="btn btn-light btn-sm">Register</a></li>
+                    {% endif %}
+                    <li class="nav-item ms-2">
+                        <button class="theme-toggle btn btn-light btn-sm">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Mobile Menu Toggler (Hamburger Icon) -->
+            <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Offcanvas Side Menu -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar">
+        <div class="offcanvas-header">
+            <!-- UPDATED: Replaced "Menu" text with company logo -->
+            <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="SPIConsulting Logo" height="60">
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('main.index') }}">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('main.about') }}">About Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('main.services') }}">Our Services</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('main.for_clients') }}">For Clients</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('main.for_hire') }}">For Hire</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('main.careers') }}">Careers</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('main.blog') }}">Blog</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('main.contact') }}">Contact Us</a></li>
+            </ul>
+            <hr>
+            <div class="d-flex flex-column">
+                 {% if current_user.is_authenticated %}
+                    <p class="text-center">Welcome, {{ current_user.username }}!</p>
+                    <a href="{{ url_for('auth.logout') }}" class="btn btn-outline-light w-100 mb-2">Logout</a>
+                {% else %}
+                    <a href="{{ url_for('auth.login') }}" class="btn btn-outline-light w-100 mb-2">Login</a>
+                    <a href="{{ url_for('auth.register') }}" class="btn btn-light w-100">Register</a>
+                {% endif %}
+                <hr>
+                <button class="theme-toggle btn btn-outline-light w-100">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</header>

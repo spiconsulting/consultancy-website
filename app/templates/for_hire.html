@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <!-- Section 1: Page Header (Default Background) -->
+    <div class="container mt-5 py-5">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="text-center text-lg-start mb-5" data-aos="fade-up">
+                    <h1 class="display-4">Find Your Next Big Opportunity</h1>
+                    <p class="lead">Looking for a role where you can make a real impact? We connect talented professionals like you with leading startups, MNCs, and everything in between.</p>
+                </div>
+            </div>
+            <div class="col-lg-6 d-none d-lg-block" data-aos="fade-left">
+                 <img src="{{ url_for('static', filename='images/hire01.jpg') }}" alt="Happy professional working on a laptop" class="img-fluid rounded shadow-sm">
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 2: How We Support You (Vibrant Gradient Background) -->
+    <div class="bg-vibrant-section py-5">
+        <div class="container">
+            <div class="text-center text-white mb-5" data-aos="fade-up">
+                <h2 class="section-title">How We Support You</h2>
+                <p class="lead mt-3">Our goal is to be your dedicated career partner, providing the tools and guidance you need to succeed.</p>
+            </div>
+            <div class="row g-4">
+                <!-- Support Card 1 -->
+                <div class="col-lg-6 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card h-100 shadow-lg text-center support-card">
+                        <img src="{{ url_for('static', filename='images/services04.jpg') }}" class="card-img-top" alt="Resume Review" style="height: 200px; object-fit: cover;">
+                        <div class="card-body">
+                            <div class="support-icon"><i class="fas fa-file-alt"></i></div>
+                            <h4 class="card-title">Resume Review</h4>
+                            <p class="card-text">We help you craft a compelling resume that stands out to recruiters and highlights your key strengths.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Support Card 2 -->
+                <div class="col-lg-6 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card h-100 shadow-lg text-center support-card">
+                        <img src="{{ url_for('static', filename='images/about01.jpg') }}" class="card-img-top" alt="Personalized Job Matching" style="height: 200px; object-fit: cover;">
+                        <div class="card-body">
+                            <div class="support-icon"><i class="fas fa-bullseye"></i></div>
+                            <h4 class="card-title">Personalized Job Matching</h4>
+                            <p class="card-text">We connect you with roles that perfectly align with your skills, experience, and long-term career ambitions.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Support Card 3 -->
+                <div class="col-lg-6 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card h-100 shadow-lg text-center support-card">
+                        <img src="{{ url_for('static', filename='images/h01.jpg') }}" class="card-img-top" alt="Interview Guidance" style="height: 200px; object-fit: cover;">
+                        <div class="card-body">
+                            <div class="support-icon"><i class="fas fa-comments"></i></div>
+                            <h4 class="card-title">Interview Guidance</h4>
+                            <p class="card-text">Get expert tips, mock interview sessions, and coaching to help you ace your interviews with confidence.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Support Card 4 -->
+                <div class="col-lg-6 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card h-100 shadow-lg text-center support-card">
+                        <img src="{{ url_for('static', filename='images/hero3.jpg') }}" class="card-img-top" alt="Career Mentoring" style="height: 200px; object-fit: cover;">
+                        <div class="card-body">
+                            <div class="support-icon"><i class="fas fa-users"></i></div>
+                            <h4 class="card-title">Career Mentoring</h4>
+                            <p class="card-text">Access to our network of industry experts to help guide your career path and make informed decisions (Coming Soon!).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 3: Call to Action (Custom Background) -->
+    <div class="bg-custom-section">
+        <div class="container">
+            <div class="text-center p-5 mt-5 rounded-3" data-aos="zoom-in">
+                <h2>Ready to take the next step in your career?</h2>
+                <p class="lead">Submit your resume and let us connect you with exciting new opportunities.</p>
+                <a href="mailto:talent.spiconsulting@outlook.com" class="btn btn-primary btn-lg mt-3">
+                    <i class="fas fa-paper-plane me-2"></i>Submit Your Resume
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

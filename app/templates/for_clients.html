@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <!-- Section 1: Page Header (Default Background) -->
+    <div class="container mt-5">
+        <div class="text-center mb-5" data-aos="fade-in">
+            <h1 class="display-4">Hire Top Talent, Effortlessly</h1>
+            <p class="lead"><b>Struggling to find the right people for your team?</b> We bring skilled professionals ready to contribute ASAP.</p>
+        </div>
+    </div>
+
+<!-- Section 2: Hiring Process (Vibrant Gradient Background) -->
+<div class="bg-vibrant-section py-5">
+    <div class="container" data-aos="fade-up">
+        <div class="text-center text-white mb-5">
+            <h2 class="section-title">Our Simple Hiring Process</h2>
+            <p class="lead mt-3">We handle the heavy lifting so you can focus on what matters: building your business.</p>
+        </div>
+
+        <!-- New Card Layout -->
+        <div class="row g-4">
+            <!-- Step 1 -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="card h-100 shadow-lg text-center process-card-image">
+                    <img src="{{ url_for('static', filename='images/clients01.jpg') }}" class="card-img-top" alt="Discovery Call" style="height: 200px; object-fit: cover;">
+                    <div class="card-body">
+                        <div class="process-step-number">1</div>
+                        <h5 class="card-title mt-4 fw-bold">Book a Free Discovery Call</h5>
+                    </div>
+                </div>
+            </div>
+            <!-- Step 2 -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="card h-100 shadow-lg text-center process-card-image">
+                    <img src="{{ url_for('static', filename='images/clients02.jpg') }}" class="card-img-top" alt="Sharing Hiring Needs" style="height: 200px; object-fit: cover;">
+                    <div class="card-body">
+                        <div class="process-step-number">2</div>
+                        <h5 class="card-title mt-4 fw-bold">Share Your Hiring Needs</h5>
+                    </div>
+                </div>
+            </div>
+            <!-- Step 3 -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                <div class="card h-100 shadow-lg text-center process-card-image">
+                    <img src="{{ url_for('static', filename='images/clients03.jpg') }}" class="card-img-top" alt="Sourcing and Screening" style="height: 200px; object-fit: cover;">
+                    <div class="card-body">
+                        <div class="process-step-number">3</div>
+                        <h5 class="card-title mt-4 fw-bold">We Source, Screen & Deliver</h5>
+                    </div>
+                </div>
+            </div>
+            <!-- Step 4 -->
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
+                <div class="card h-100 shadow-lg text-center process-card-image">
+                    <img src="{{ url_for('static', filename='images/clients04.jpg') }}" class="card-img-top" alt="Interviewing Candidates" style="height: 200px; object-fit: cover;">
+                    <div class="card-body">
+                        <div class="process-step-number">4</div>
+                        <h5 class="card-title mt-4 fw-bold">You Interview & Hire the Best</h5>
+                    </div>
+                </div>
+            </div>
+            <!-- Step 5 -->
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="500">
+                <div class="card h-100 shadow-lg text-center process-card-image">
+                    <img src="{{ url_for('static', filename='images/clients05.jpg') }}" class="card-img-top" alt="Onboarding New Hire" style="height: 200px; object-fit: cover;">
+                    <div class="card-body">
+                        <div class="process-step-number">5</div>
+                        <h5 class="card-title mt-4 fw-bold">Enjoy Hassle-Free Onboarding</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <!-- Section 3: Call to Action (Custom Background) -->
+    <div class="bg-custom-section">
+        <div class="container">
+            <div class="text-center p-5 mt-5 rounded-3" data-aos="zoom-in">
+                <h2>Let's find your next best hire today.</h2>
+                <p class="lead">Ready to build your dream team? Schedule a free, no-obligation call with our talent experts.</p>
+                <a href="mailto:getintouch.spiconsulting@outlook.com" class="btn btn-primary btn-lg mt-3">
+                    <i class="fas fa-calendar-alt me-2"></i>Schedule a Call
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

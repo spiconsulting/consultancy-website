@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <!-- Section 1: Page Header (Default Background) -->
+    <div class="container mt-5"  data-aos="zoom-out-down">
+        <div class="text-center mb-5">
+            <h1 class="display-4">About Us</h1>
+            <p class="lead">We are SkilledProfessionalsIndia Consulting, a strategic recruitment partner dedicated to building the teams that build the future.</p>
+        </div>
+    </div>
+
+    <!-- Section 2: Who We Are (Light Gray Background) -->
+    <div class="bg-light py-5">
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
+                    <img src="{{ url_for('static', filename='images/about_us_india.jpg') }}" alt="A professional and diverse team collaborating in a modern Indian office" class="img-fluid rounded shadow-lg">
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <h2>Who We Are</h2>
+                    <p>
+                        <strong>SkilledProfessionals India consulting</strong> is a 
+                        <strong>Bengaluru-based recruitment consultancy</strong>, founded by an 
+                        <strong>industry expert</strong> with over a decade of experience in sourcing talent across domains like 
+                        <strong>IT</strong>, <strong>Software</strong>, <strong>Engineering</strong>, and <strong>Healthcare</strong>.
+                    </p>
+                    <p>
+                    We focus on helping <strong>small and growing businesses</strong> build 
+                    <strong>teams that scale with success</strong>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+ <!-- Section 3: Mission and Vision (Default Background) -->
+<div class="container py-5" data-aos="fade-up">
+    <div class="row g-4">
+        <!-- Mission Card -->
+        <div class="col-md-6" data-aos="fade-right">
+            <div class="card h-100 shadow-lg text-center mission-vision-card">
+                <img src="{{ url_for('static', filename='images/about01.jpg') }}" class="card-img-top" alt="Our Mission" style="height: 250px; object-fit: cover;">
+                <div class="card-body p-4">
+                    <div class="card-icon-top">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3 class="card-title fw-bold">Our Mission</h3>
+                    <p class="card-text">To bridge the gap between quality talent and great companies with integrity, agility, and innovation. We are committed to delivering personalized recruitment solutions that not only meet the unique needs of businesses but also create meaningful opportunities for job seekers.</p>
+                </div>
+            </div>
+        </div>
+        <!-- Vision Card -->
+        <div class="col-md-6" data-aos="fade-left">
+            <div class="card h-100 shadow-lg text-center mission-vision-card">
+                <img src="{{ url_for('static', filename='images/about02.jpg') }}" class="card-img-top" alt="Our Vision" style="height: 250px; object-fit: cover;">
+                <div class="card-body p-4">
+                    <div class="card-icon-top">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3 class="card-title fw-bold">Our Vision</h3>
+                    <p class="card-text">To be the most trusted partner for growing businesses in India for their hiring needs, while empowering both employers and job seekers by creating meaningful connections that drive success and growth.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Section 4: Meet Our Leaders (Custom Background)
+    <div class="bg-custom-section py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2>Meet Our Leaders</h2>
+                <p class="lead">The architects of our success and your trusted advisors.</p>
+            </div>
+            <div class="row">
+                <!-- Leader 1 -->
+                <!-- <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card h-100 text-center shadow-sm">
+                        <img src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img-top" alt="Headshot of Priya Sharma" style="height: 250px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="card-title">Priya Sharma</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Founder & CEO</h6>
+                            <p class="card-text">With deep expertise in the Indian talent market, Priya founded TalentBridge with a passion for helping startups build their foundational teams.</p>
+                        </div>
+                    </div>
+                </div> -->
+                <!-- Leader 2 -->
+                <!-- <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card h-100 text-center shadow-sm">
+                        <img src="https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img-top" alt="Headshot of Rohan Mehta" style="height: 250px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="card-title">Rohan Mehta</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Head of Technology Recruitment</h6>
+                            <p class="card-text">Rohan pioneers our tech-driven sourcing strategies, leveraging AI to identify top-tier engineers with unmatched speed.</p>
+                        </div>
+                    </div>
+                </div> -->
+                <!-- Leader 3 -->
+                <!-- <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card h-100 text-center shadow-sm">
+                        <img src="https://images.pexels.com/photos/1181519/pexels-photo-1181519.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img-top" alt="Headshot of Anjali Desai" style="height: 250px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="card-title">Anjali Desai</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Head of Executive Search</h6>
+                            <p class="card-text">Anjali specializes in placing C-suite and senior leadership roles, helping clients secure visionary leaders who drive growth.</p>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </div> 
+{% endblock %}

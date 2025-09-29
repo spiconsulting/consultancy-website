@@ -1,0 +1,155 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <!-- Section 1: Page Header (Default Background) -->
+    <div class="container mt-5">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <h1 class="display-4">Our Comprehensive Services</h1>
+            <p class="lead">We provide end-to-end talent solutions designed to meet the dynamic needs of businesses across India.</p>
+        </div>
+    </div>
+
+   <!-- Section 2: Recruitment Services (Vibrant Gradient Background) -->
+    <div class="bg-vibrant-section py-5">
+        <div class="container" data-aos="fade-up">
+            <h2 class="section-title text-center text-white mb-5 ">Recruitment Services</h2>
+            <div class="row g-4">
+                <!-- Card 1: Permanent Hiring -->
+                <div class="col-lg-6 col-md-6 col-12" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card h-100 shadow-lg service-card">
+                        <img src="{{ url_for('static', filename='images/services01.jpg') }}" class="card-img-top" alt="A team celebrating a permanent hire" style="height: 220px; object-fit: cover;">
+                        <div class="card-body">
+                            <h4 class="card-title">Permanent Hiring</h4>
+                            <p class="card-text">Find long-term talent that aligns with your company culture and goals. We handle the entire process from sourcing to final offer negotiation.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 2: Contract Staffing -->
+                <div class="col-lg-6 col-md-6 col-12" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card h-100 shadow-lg service-card">
+                        <img src="{{ url_for('static', filename='images/h02.jpg') }}" class="card-img-top" alt="A professional working on a contract basis" style="height: 220px; object-fit: cover;">
+                        <div class="card-body">
+                            <h4 class="card-title">Contract Staffing</h4>
+                            <p class="card-text">Gain flexibility for project-based needs. We provide skilled professionals on a contract basis to help you scale your workforce on demand.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 3: Executive Search -->
+                <div class="col-lg-6 col-md-6 col-12" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card h-100 shadow-lg service-card">
+                        <img src="{{ url_for('static', filename='images/services02.jpg') }}" class="card-img-top" alt="An executive leader looking over a city" style="height: 220px; object-fit: cover;">
+                        <div class="card-body">
+                            <h4 class="card-title">Executive Search</h4>
+                            <p class="card-text">Identify and attract high-impact leaders for your C-suite and senior management roles with our discreet and targeted approach.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 4: Remote Team Hiring -->
+                <div class="col-lg-6 col-md-6 col-12" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card h-100 shadow-lg service-card">
+                        <img src="{{ url_for('static', filename='images/services03.jpg') }}" class="card-img-top" alt="A person working remotely on a laptop" style="height: 220px; object-fit: cover;">
+                        <div class="card-body">
+                            <h4 class="card-title">Remote Team Hiring</h4>
+                            <p class="card-text">Build a world-class, distributed team with top talent from across India. We specialize in sourcing candidates who thrive in remote work.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Section 3: Value-Added Services (Custom Background) -->
+    <div class="bg-custom-section py-5">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="pb-2 d-inline-block border-bottom">Value-Added Services</h2>
+                <p class="lead">We support your hiring process at every step to ensure efficiency and success.</p>
+            </div>
+            <div class="row align-items-center">
+                <!-- Single, consistent image for the section -->
+                <div class="col-md-5 mb-4 mb-md-0" data-aos="fade-right">
+                    <img src="{{ url_for('static', filename='images/services04.jpg') }}" class="img-fluid rounded shadow-lg" alt="A professional reviewing documents and planning">
+                </div>
+                <!-- Simple, point-wise list of services -->
+                <div class="col-md-7" data-aos="fade-left">
+                    <ul class="list-group list-group-flush fs-5">
+                        <li class="list-group-item bg-transparent border-0 px-0">
+                            <i class="fas fa-check-circle text-primary me-2"></i>
+                            <strong>Job Description Drafting</strong>
+                        </li>
+                        <li class="list-group-item bg-transparent border-0 px-0">
+                            <i class="fas fa-check-circle text-primary me-2"></i>
+                            <strong>Candidate Screening & Shortlisting</strong>
+                        </li>
+                        <li class="list-group-item bg-transparent border-0 px-0">
+                            <i class="fas fa-check-circle text-primary me-2"></i>
+                            <strong>Interview Coordination</strong>
+                        </li>
+                        <li class="list-group-item bg-transparent border-0 px-0">
+                            <i class="fas fa-check-circle text-primary me-2"></i>
+                            <strong>Background Verification Coordination</strong>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 4: Industries We Serve (Default Background) -->
+    <div class="py-5">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="pb-2 d-inline-block border-bottom">Industries We Serve</h2>
+                <p class="lead mt-3">Our expertise spans across a wide range of India's high-growth sectors.</p>
+            </div>
+            <div class="row g-4">
+                <!-- Industry Card: Information Technology -->
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in">
+                    <div class="card h-100 shadow-sm text-center">
+                        <img src="{{ url_for('static', filename='images/services05.jpg') }}" class="card-img-top" alt="Information Technology" style="height: 180px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="card-title">Information Technology (IT)</h5>
+                        </div>
+                    </div>
+                </div>
+                <!-- Industry Card: Software Development -->
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="card h-100 shadow-sm text-center">
+                        <img src="{{ url_for('static', filename='images/services06.jpg') }}" class="card-img-top" alt="Software Development" style="height: 180px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="card-title">Software Development</h5>
+                        </div>
+                    </div>
+                </div>
+                <!-- Industry Card: Healthcare -->
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="card h-100 shadow-sm text-center">
+                        <img src="{{ url_for('static', filename='images/services07.jpg') }}" class="card-img-top" alt="Healthcare & Life Sciences" style="height: 180px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="card-title">Healthcare & Life Sciences</h5>
+                        </div>
+                    </div>
+                </div>
+                <!-- Industry Card: Engineering -->
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="card h-100 shadow-sm text-center">
+                        <img src="{{ url_for('static', filename='images/services08.jpg') }}" class="card-img-top" alt="Engineering & Manufacturing" style="height: 180px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="card-title">Engineering & Manufacturing</h5>
+                        </div>
+                    </div>
+                </div>
+                <!-- Industry Card: Startups -->
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="card h-100 shadow-sm text-center">
+                        <img src="{{ url_for('static', filename='images/services09.jpg') }}" class="card-img-top" alt="Startups & SMBs" style="height: 180px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="card-title">Startups & SMBs</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
