@@ -9,6 +9,8 @@ from flask_login import current_user, login_required
 from app.auth import admin_required
 from flask import Blueprint
 from flask_mail import Message
+from datetime import datetime # <-- THIS LINE IS THE FIX
+
 
 bp = Blueprint('main', __name__)
 
