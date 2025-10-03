@@ -1,7 +1,7 @@
 import os
 import secrets
 from PIL import Image
-from flask import render_template, flash, redirect, url_for, request, abort, current_app, jsonify
+from flask import render_template, flash, redirect, url_for, request, abort, current_app, jsonify, make_response
 from app import db, mail
 from app.forms import ContactForm, PostForm, JobForm
 from app.models import User, Post, Job
@@ -239,4 +239,43 @@ def download_export():
     except Exception as e:
         flash(f'An error occurred during the export: {e}', 'danger')
         return redirect(url_for('main.index'))
+    
+    
+    
+    
+
+# --- UPDATED ROUTE TO GENERATE SITEMAP.XML ---
+@bp.route('/sitemap.xml')
+def sitemap():
+    """Generates the sitemap.xml file dynamically."""
+    base_url = request.url_root
+    lastmod_date = datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%S+00:00')
+
+    # Get all published blog posts
+    posts = Post.query.order_by(Post.timestamp.desc()).all()
+    
+    # Get all active job openings
+    jobs = Job.query.order_by(Job.id).all()
+
+    # List of static pages to include
+    static_pages = [
+        'main.home', 'main.about', 'main.services', 'main.for_clients',
+        'main.for_hire', 'main.careers', 'main.blog', 'main.contact',
+        'main.terms', 'main.privacy',
+        'auth.login', 'auth.register'
+    ]
+
+    # Render the sitemap template
+    sitemap_xml = render_template('sitemap.xml', 
+                                  posts=posts, 
+                                  jobs=jobs, 
+                                  static_pages=static_pages,
+                                  base_url=base_url,
+                                  lastmod_date=lastmod_date)
+    
+    # Create a response with the correct XML content type
+    response = make_response(sitemap_xml)
+    response.headers['Content-Type'] = 'application/xml'
+    
+    return response
 
