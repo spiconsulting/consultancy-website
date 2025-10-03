@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="light">
 <head>
+    <!-- Dynamic Title -->
+    <title>{% block title %}SPI Consulting: Bridging Talent with Opportunity - Seamlessly{% endblock %}</title>
+    <title>{{ title }} - SkilledProfessionals India Consulting</title>   <!-- we're passing from our routes. -->
     <!-- Meta tags for character set, compatibility, and responsiveness -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- SEO Meta Tags -->
-    <meta name="description" content="A professional consultancy services company in India, offering expert solutions for your business.">
+    <meta name="description" content="SkilledProfessionals India Consulting is a leading recruitment consultancy in Bengaluru, specializing in IT, Software, and Engineering talent for startups and growing businesses.">
     <meta name="keywords" content="consultancy, business, India, services, expert solutions">
     <!-- Favicon -->
     <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
@@ -18,9 +21,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <!-- NEW: AOS Animation Library CSS -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <!-- Dynamic Title -->
-    <title>{% block title %}SPIConsulting: Bridging Talent with Opportunity - Seamlessly{% endblock %}</title>
-    <title>{{ title }} - SPIConsulting</title>   <!-- we're passing from our routes. -->
+    
 
     <!-- NEW: Google Analytics Tracking Code (runs only in production) -->
     {% if not config.DEBUG %}
