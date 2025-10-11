@@ -21,6 +21,24 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <!-- NEW: AOS Animation Library CSS -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- NEW: JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "SkilledProfessionalsIndia Consulting",
+      "url": "https://www.spiconsulting.in",
+      "logo": "{{ url_for('static', filename='images/logo.jpg', _external=True) }}"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "SkilledProfessionalsIndia Consulting",
+      "url": "https://www.spiconsulting.in/"
+    }
+    </script>
     
 
     <!-- NEW: Google Analytics Tracking Code (runs only in production) -->
