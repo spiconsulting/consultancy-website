@@ -28,7 +28,8 @@ class ContactForm(FlaskForm):
     service = SelectField('Service of Interest', choices=[
         ('general', 'General Inquiry'),
         ('clients', 'Clients (Hiring or Collaboration) Inquiry'),
-        ('candidates', 'Candidates (Job Seekers) Inquiry')
+        ('candidates', 'Candidates (Job Seekers) Inquiry'),
+        ('job_domain', 'Preferred Job Role / Domain Inquiry')
     ])
     
     # Define the 'message' field: a larger text area.
