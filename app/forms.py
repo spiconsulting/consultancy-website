@@ -27,10 +27,8 @@ class ContactForm(FlaskForm):
     # 'choices' provides the options for the dropdown.
     service = SelectField('Service of Interest', choices=[
         ('general', 'General Inquiry'),
-        ('it', 'IT Consulting'),
-        ('engineering', 'Engineering Consulting'),
-        ('healthcare', 'Healthcare Consulting'),
-        ('software','Software Consulting')
+        ('clients', 'Clients (Hiring or Collaboration) Inquiry'),
+        ('candidates', 'Candidates (Job Seekers) Inquiry')
     ])
     
     # Define the 'message' field: a larger text area.
